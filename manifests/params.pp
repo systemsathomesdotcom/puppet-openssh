@@ -5,7 +5,7 @@ class ssh::params {
     $manage_hostkey     = false
     $manage_known_hosts = true
     $permit_root_login  = 'no'
-    $listen_address     = "0.0.0.0"
+    $listen_address     = '0.0.0.0'
     $hostaliases        = undef
 
     $options            = {}

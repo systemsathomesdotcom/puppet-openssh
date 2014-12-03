@@ -81,23 +81,23 @@ class ssh (
     }
 
     service { $service_name:
-        ensure      => $ensure_running,
-        enable      => $ensure_enabled,
-        hasrestart  => true,
-        hasstatus   => true,
-        require     => [
+        ensure     => $ensure_running,
+        enable     => $ensure_enabled,
+        hasrestart => true,
+        hasstatus  => true,
+        require    => [
             File['/etc/ssh/sshd_config'],
             Package['openssh-server']
         ],
     }
 
     class { 'ssh::hostkey':
-        manage_hostkey  => $manage_hostkey,
-        hostkey_name    => $hostkey_name,
-        hostaliases     => $hostaliases,
+        manage_hostkey => $manage_hostkey,
+        hostkey_name   => $hostkey_name,
+        hostaliases    => $hostaliases,
     } ~>
     class { 'ssh::known_hosts':
-        manage          => $manage_known_hosts,
-        manage_hostkey  => $manage_hostkey,
+        manage         => $manage_known_hosts,
+        manage_hostkey => $manage_hostkey,
     }
 }
