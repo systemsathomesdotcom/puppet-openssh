@@ -5,7 +5,6 @@
 # == Features:
 # 
 # - Install sshd and configure some common settings (e.g. PermitRootLogin)
-# - Manage ssh users and groups
 # - Manage a global known_hosts file
 #
 # == Requirements:
@@ -40,14 +39,6 @@
 #    Wether to manage a global known_hosts file or not.
 #    Default: true
 #
-# [*manage_users*]
-#    Wether to manage users or not.
-#    Default: false
-#
-# [*manage_groups*]
-#    Wether to manage groups or not.
-#    Default: false
-#
 # [*permit_root_login*]
 #    Wether to permit root login or not. This is a global option. If
 #    configuring it from hiera, make sure not to prefix it with the
@@ -56,12 +47,6 @@
 # [*listen_address*]
 #    Define the address the sshd should listen on.
 #    Default: 0.0.0.0
-#
-# [*users]
-#    A hash with the users that shall be managed.
-#
-# [*groups*]
-#    A hash with the groups that shall be managed
 #
 # == Author:
 # 
@@ -74,13 +59,9 @@ class ssh (
     $permit_root_login  = params_lookup('permit_root_login', 'global'),
     $listen_address     = params_lookup('listen_address'),
     $manage_known_hosts = params_lookup('manage_known_hosts'),
-    $manage_users       = params_lookup('manage_users'),
-    $manage_groups      = params_lookup('manage_groups'),
     $manage_hostkey     = params_lookup('manage_hostkey'),
     $hostkey_name       = params_lookup('hostkey_name'),
     $hostaliases        = params_lookup('hostaliases'),
-    $users              = params_lookup('users'),
-    $groups             = params_lookup('groups'),
     $service_name       = params_lookup('service_name'),
     $options            = params_lookup('options')
 
@@ -108,15 +89,6 @@ class ssh (
             File['/etc/ssh/sshd_config'],
             Package['openssh-server']
         ],
-    }
-
-    class { 'ssh::groups':
-        manage => $manage_groups,
-        groups => $groups,
-    } ~> # first groups, then users
-    class { 'ssh::users':
-        manage => $manage_users,
-        users  => $users,
     }
 
     class { 'ssh::hostkey':

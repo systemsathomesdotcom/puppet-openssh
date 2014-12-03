@@ -4,14 +4,9 @@ class ssh::params {
     $ensure_enabled     = true
     $manage_hostkey     = false
     $manage_known_hosts = true
-    $manage_users       = false
-    $manage_groups      = false
     $permit_root_login  = 'no'
     $listen_address     = "0.0.0.0"
     $hostaliases        = undef
-
-    $users              = {}
-    $groups             = {}
 
     $options            = {}
 
