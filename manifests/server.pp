@@ -48,7 +48,7 @@
 #    Patrick Schoenfeld <patrick.schoenfeld@credativ.de>
 #
 class ssh::server (
-    $ensure             = 'present'
+    $ensure             = $ssh::params::ensure,
     $ensure_running     = $ssh::params::ensure_running,
     $ensure_enabled     = $ssh::params::ensure_enabled,
     $manage_config      = $ssh::params::manage_config,

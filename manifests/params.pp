@@ -1,4 +1,5 @@
 class ssh::params {
+    $ensure             = present
     $ensure_running     = true
     $ensure_enabled     = true
     $manage_config		= true
