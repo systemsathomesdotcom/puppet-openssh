@@ -1,4 +1,4 @@
-# = Class: ssh
+# = Class: ssh::server
 #
 # Manage SSH on a system
 #
@@ -52,7 +52,7 @@
 # 
 #    Patrick Schoenfeld <patrick.schoenfeld@credativ.de>
 #
-class ssh (
+class ssh::server (
     $ensure             = params_lookup('ensure'),
     $ensure_running     = params_lookup('ensure_running'),
     $ensure_enabled     = params_lookup('ensure_enabled'),
