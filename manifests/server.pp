@@ -10,25 +10,32 @@
 #    Default: present
 #
 #  [*ensure_running*]
-#    Wether to ensure running sshd or not.
+#    Whether to ensure running sshd or not.
 #    Default: running
 #
 #  [*ensure_enabled*]
-#    Wether to ensure that sshd is started on boot or not.
+#    Whether to ensure that sshd is started on boot or not.
+#    Default: true
+#
+#  [*manage_config*]
+#    Whether to manage sshd_config or not.
 #    Default: true
 #
 # [*manage_hostkey*]
 #    Wether to manage the hostkey) or not. This is required for manage_known_hosts
 #    without storeconfig/puppetdb to work.
 #    Default: false
-
 #
 # [*manage_known_hosts*]
-#    Wether to manage a global known_hosts file or not.
+#    Whether to manage a global known_hosts file or not.
 #    Default: true
 #
+# [*config_template*]
+#    Allows specifying what template is used for the sshd_config.
+#    Default: 'ssh/sshd_config.erb'
+#
 # [*permit_root_login*]
-#    Wether to permit root login or not. This is a global option. If
+#    Whether to permit root login or not. This is a global option. If
 #    configuring it from hiera, make sure not to prefix it with the
 #    module name.
 #
