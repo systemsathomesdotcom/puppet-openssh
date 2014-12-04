@@ -21,6 +21,7 @@ task :default => :rspec
 begin
   if Gem::Specification::find_by_name('puppet-lint')
     require 'puppet-lint/tasks/puppet-lint'
+    PuppetLint.configuration.send('disable_class_inherits_from_params_class')
     PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "vendor/**/*.pp"]
     task :default => [:rspec, :lint]
   end
