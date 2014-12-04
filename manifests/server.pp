@@ -2,18 +2,6 @@
 #
 # Manage SSH on a system
 #
-# == Features:
-# 
-# - Install sshd and configure some common settings (e.g. PermitRootLogin)
-# - Manage a global known_hosts file
-#
-# == Requirements:
-# 
-#  - This module makes use of the example42 functions in the puppi module
-#    (https://github.com/credativ/puppet-example42lib)
-#  - The module makes use of puppets storeconfig feature. So puppet on both
-#    master and agents must be configured accordingly.
-#
 # == Parameters:
 # 
 # [*ensure*]
@@ -53,31 +41,33 @@
 #    Patrick Schoenfeld <patrick.schoenfeld@credativ.de>
 #
 class ssh::server (
-    $ensure             = params_lookup('ensure'),
-    $ensure_running     = params_lookup('ensure_running'),
-    $ensure_enabled     = params_lookup('ensure_enabled'),
-    $permit_root_login  = params_lookup('permit_root_login', 'global'),
-    $listen_address     = params_lookup('listen_address'),
-    $manage_known_hosts = params_lookup('manage_known_hosts'),
-    $manage_hostkey     = params_lookup('manage_hostkey'),
-    $hostkey_name       = params_lookup('hostkey_name'),
-    $hostaliases        = params_lookup('hostaliases'),
-    $service_name       = params_lookup('service_name'),
-    $options            = params_lookup('options')
-
+    $ensure             = 'present'
+    $ensure_running     = $ssh::params::ensure_running,
+    $ensure_enabled     = $ssh::params::ensure_enabled,
+    $manage_config      = $ssh::params::manage_config,
+    $manage_known_hosts = $ssh::params::manage_known_hosts,
+    $manage_hostkey     = $ssh::params::manage_hostkey,
+    $hostkey_name       = $ssh::params::hostkey_name,
+    $hostaliases        = $ssh::params::hostaliases,
+    $service_name       = $ssh::params::service_name,
+    $permit_root_login  = $ssh::params::permit_root_login,
+    $listen_address     = $ssh::params::listen_address,
+    $options            = $ssh::params::options,
     ) inherits ssh::params {
 
     package { 'openssh-server':
-        ensure => $ensure,
+        ensure => $ensure
     }
 
-    file { '/etc/ssh/sshd_config':
-        owner   => root,
-        group   => root,
-        mode    => '0644',
-        notify  => Service[$service_name],
-        require => Package['openssh-server'],
-        content => template('ssh/sshd_config.erb')
+    if $manage_config {
+        file { '/etc/ssh/sshd_config':
+            owner   => root,
+            group   => root,
+            mode    => '0644',
+            notify  => Service[$service_name],
+            require => Package['openssh-server'],
+            content => template('ssh/sshd_config.erb')
+        }
     }
 
     service { $service_name:

@@ -1,7 +1,7 @@
 class ssh::params {
-    $ensure             = 'present'
     $ensure_running     = true
     $ensure_enabled     = true
+    $manage_config		= true
     $manage_hostkey     = false
     $manage_known_hosts = true
     $permit_root_login  = 'no'
