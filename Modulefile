@@ -4,6 +4,6 @@ source 'https://github.com/aptituz/puppet-openssh'
 author 'Patrick Schoenfeld <patrick.schoenfeld@credativ.de>'
 license 'MIT'
 summary 'puppet module to manage ssh with a hiera backend'
-description 'This module allows managing a ssh-server, including users and groups, with hiera as data backend'
+description 'This module allows managing ssh'
 project_page 'https://github.com/aptituz/puppet-openssh'
 
