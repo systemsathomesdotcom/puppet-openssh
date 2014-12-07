@@ -4,15 +4,16 @@
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Backwards (in)compatibility - A cautious note for previous users of credativ/puppet-ssh-hiera]
-3. [Setup - The basics of getting started with [Modulename]](#setup)
+3. [Backwards (in)compatibility - A cautious note for previous users of credativ/puppet-ssh-hiera](#backwards-incompat)
+4. [Setup - The basics of getting started with [Modulename]](#setup)
     * [What [Modulename] affects](#what-[modulename]-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with [Modulename]](#beginning-with-[Modulename])
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+5. [Usage - Configuration options and additional functionality](#usage)
+6. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+7. [Limitations - OS compatibility, etc.](#limitations)
+8. [Development - Guide for contributing to the module](#development)
+9. [Contributors](#contributors)
 
 ##Overview
 
@@ -32,10 +33,10 @@ management, it supports two ways to manage a global known_hosts file:
   out by puppet (enduring re-provisioning and working without storeconfig)
 
 ## Backwards (in)compatibility
-This module has just gone a refactoring, from the module previously written for
-my employer (credativ/puppet-ssh-hiera). It is no longer compatible to that
-module, since some of its distinct features (user management) and specifics
-have been removed and/or changed. This module is no longer using the
+This module has just gone through a refactoring, from the module previously
+written for my employer (credativ/puppet-ssh-hiera). It is no longer compatible
+to that module, since some of its distinct features (user management) and
+specifics have been removed and/or changed. This module is no longer using the
 params_lookup function, nor is it managing anything except ssh.
 
 ## Setup
@@ -125,7 +126,7 @@ Other systems are supported but cannot be guaranted.
 
 I happily accept bug reports and pull requests via github.
 
-## Authors
+## Contributors
 
 This module is written and being maintained by
     
