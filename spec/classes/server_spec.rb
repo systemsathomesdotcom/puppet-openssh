@@ -15,7 +15,7 @@ describe 'ssh::server' do
         it { should contain_file('/etc/ssh/sshd_config').with(
                 :owner  => 'root',
                 :group  => 'root',
-                :mode   => '0644',
+                :mode   => '0644'
            )}
     end
 
