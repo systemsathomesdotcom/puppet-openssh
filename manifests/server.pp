@@ -22,8 +22,8 @@
 #    Default: true
 #
 # [*manage_hostkey*]
-#    Wether to manage the hostkey) or not. This is required for manage_known_hosts
-#    without storeconfig/puppetdb to work.
+#    Wether to manage the hostkey or not. This is required for
+#    manage_known_hosts without storeconfig/puppetdb to work.
 #    Default: false
 #
 # [*manage_known_hosts*]

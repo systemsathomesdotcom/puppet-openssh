@@ -1,3 +1,7 @@
+# = Class: ssh::known_hosts::storeconfig
+#
+# Manages a global known_hosts file (based on storeconfig)
+#
 class ssh::known_hosts::storeconfig {
         # Export our own ssh key
         @@sshkey { $::hostname:
