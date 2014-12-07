@@ -54,6 +54,7 @@ class ssh::server (
     $manage_config      = $ssh::params::manage_config,
     $manage_known_hosts = $ssh::params::manage_known_hosts,
     $manage_hostkey     = $ssh::params::manage_hostkey,
+    $config_template    = $ssh::params::config_template,
     $hostkey_name       = $ssh::params::hostkey_name,
     $hostaliases        = $ssh::params::hostaliases,
     $service_name       = $ssh::params::service_name,
