@@ -19,6 +19,27 @@ describe 'ssh::server' do
            )}
     end
 
+    context "different settings for permit_root_login" do
+        context "with permit_root_login => yes" do
+            let (:params) {{ :permit_root_login => 'yes' }}
+            it { should contain_file('/etc/ssh/sshd_config').with_content(/\nPermitRootLogin yes\n/) }
+        end
+        context "with permit_root_login => no" do
+            let (:params) {{ :permit_root_login => 'no' }}
+            it { should contain_file('/etc/ssh/sshd_config').with_content(/\nPermitRootLogin no\n/) }
+        end
+        context "with permit_root_login => without-password" do
+            let (:params) {{ :permit_root_login => 'without-password' }}
+            it { should contain_file('/etc/ssh/sshd_config').with_content(/\nPermitRootLogin without-password\n/) }
+        end  
+        context "with permit_root_login => forced-commands-only" do
+            let (:params) {{ :permit_root_login => 'forced-commands-only' }}
+            it { should contain_file('/etc/ssh/sshd_config').with_content(/\nPermitRootLogin forced-commands-only\n/) }
+        end  
+
+
+    end
+
     context "RedHat-specific differences" do
         let (:facts) {{
             :osfamily   => 'RedHat'
