@@ -17,9 +17,11 @@ class ssh::params {
     case $::osfamily {
         'Debian': {
             $service_name = 'ssh'
+            $client_package = 'openssh-client'
         }
         'RedHat': {
             $service_name = 'sshd'
+            $client_package = 'openssh-clients'
         }
         default: {
             fail('unsupported platform')

@@ -9,9 +9,10 @@
 #
 
 class ssh::client (
-  $ensure  = 'present'
-  ) {
-    package { 'openssh-client':
+  $ensure           = 'present',
+  $client_package   = $ssh::params::client_package
+  ) inherits ssh::params {
+    package { $client_package:
         ensure  => $ensure
     }
 }
