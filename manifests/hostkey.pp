@@ -29,7 +29,7 @@ class ssh::hostkey (
             group   => 'root',
             mode    => '0600',
             content => $rsa_priv,
-            notify  => Service[$ssh::service_name]
+            notify  => Service[$ssh::params::service_name]
         }
         file { '/etc/ssh/ssh_host_rsa_key.pub':
             owner   => 'root',
@@ -60,7 +60,7 @@ class ssh::hostkey (
             group   => 'root',
             mode    => '0600',
             content => $dsa_priv,
-            notify  => Service[$ssh::service_name]
+            notify  => Service[$ssh::params::service_name]
         }
         file { '/etc/ssh/ssh_host_dsa_key.pub':
             owner   => 'root',
@@ -92,7 +92,7 @@ class ssh::hostkey (
             group   => 'root',
             mode    => '0600',
             content => $ecdsa_priv,
-            notify  => Service[$ssh::service_name]
+            notify  => Service[$ssh::params::service_name]
         }
         file { '/etc/ssh/ssh_host_ecdsa_key.pub':
             owner   => 'root',
