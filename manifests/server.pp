@@ -63,6 +63,8 @@ class ssh::server (
     $options            = $ssh::params::options,
     ) inherits ssh::params {
 
+    validate_re($permit_root_login, ['yes', 'no', 'without-password', 'forced-commands-only'])
+
     package { 'openssh-server':
         ensure => $ensure
     }
