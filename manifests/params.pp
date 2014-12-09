@@ -9,7 +9,7 @@ class ssh::params {
     $config_template    = 'ssh/sshd_config.erb'
     $permit_root_login  = 'no'
     $listen_address     = '0.0.0.0'
-    $hostkey_name       = undef
+    $hostkey_name       = $::fqdn
     $hostaliases        = undef
 
     $options            = {}
