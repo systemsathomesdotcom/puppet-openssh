@@ -81,7 +81,11 @@ TCPKeepAlive <%= options['TCPKeepAlive'] || 'yes' %>
 # Allow client to pass locale environment variables
 AcceptEnv LANG <%= options['AcceptEnv LANG'] || 'LC_*' %>
 
+<% if @osfamily == 'Debian' -%>
 Subsystem sftp /usr/lib/openssh/sftp-server
+<% elsif @osfamily == 'RedHat' -%>
+Subsystem sftp /usr/libexec/openssh/sftp-server
+<% end -%>
 
 # Set this to 'yes' to enable PAM authentication, account processing,
 # and session processing. If this is enabled, PAM authentication will

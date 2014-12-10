@@ -52,6 +52,8 @@ describe 'ssh::server' do
                 :ensure => true,
                 :enable => true
             )}
+
+        it { should contain_file('/etc/ssh/sshd_config').with_content(/\nSubsystem sftp \/usr\/libexec\/openssh\/sftp-server\n/) }
     end
 
 	context "absence test" do
