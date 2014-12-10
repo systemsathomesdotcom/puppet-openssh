@@ -17,7 +17,10 @@ describe 'ssh::server' do
                 :group  => 'root',
                 :mode   => '0644'
            )}
+
+        it { should contain_file('/etc/ssh/sshd_config').with_content(/\nSubsystem sftp \/usr\/lib\/openssh\/sftp-server\n/) }
     end
+
 
     context "different settings for permit_root_login" do
         context "with permit_root_login => yes" do
