@@ -1,5 +1,5 @@
 name    'aptituz/ssh'
-version '2.0.2'
+version '2.1.0'
 source 'https://github.com/aptituz/puppet-openssh'
 author 'Patrick Schoenfeld <patrick.schoenfeld@credativ.de>'
 license 'MIT'
