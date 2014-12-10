@@ -35,9 +35,8 @@
 #    Default: 'ssh/sshd_config.erb'
 #
 # [*permit_root_login*]
-#    Whether to permit root login or not. This is a global option. If
-#    configuring it from hiera, make sure not to prefix it with the
-#    module name.
+#    Whether to permit root login or not.
+#     Valid values are: yes, no, without-password and forced-commands-only
 #
 # [*listen_address*]
 #    Define the address the sshd should listen on.
