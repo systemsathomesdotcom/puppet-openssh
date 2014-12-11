@@ -257,6 +257,9 @@ GatewayPorts <%= options['GatewayPorts'] %>
 <% end -%>
 <% if @options['X11Forwarding'] -%>
 X11Forwarding <%= options['X11Forwarding'] %>
+<% elsif @osfamily == 'Debian' || @osfamily == 'RedHat' -%>
+# Debian and RedHat set X11Forwarding to yes.
+X11Forwarding yes
 <% else -%>
 #X11Forwarding no
 <% end -%>
