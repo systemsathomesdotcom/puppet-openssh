@@ -67,17 +67,17 @@ class ssh::server (
     )
 
     package { 'openssh-server':
-        ensure => $ensure
+        ensure => $ensure,
     }
 
     if $manage_config {
         file { '/etc/ssh/sshd_config':
-            owner   => root,
-            group   => root,
+            owner   => 'root',
+            group   => 'root',
             mode    => '0644',
             notify  => Service[$service_name],
             require => Package['openssh-server'],
-            content => template('ssh/sshd_config.erb')
+            content => template('ssh/sshd_config.erb'),
         }
     }
 

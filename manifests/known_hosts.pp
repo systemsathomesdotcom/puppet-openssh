@@ -8,7 +8,7 @@ class ssh::known_hosts (
 
     if $manage_hostkey {
         $known_hosts = ssh_keygen(
-            { 'request' => 'known_hosts', dir => 'ssh/hostkeys' }
+            { 'request' => 'known_hosts', 'dir' => 'ssh/hostkeys' }
         )
 
         # if we are managing hostkeys, we are using its known_hosts file
