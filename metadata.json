@@ -1,12 +1,12 @@
 {
-  "name": "aptituz/ssh",
-  "version": "2.1.0",
-  "author": "Patrick Schoenfeld <patrick.schoenfeld@credativ.de>",
+  "name": "systemsathomesdotcom/ssh",
+  "version": "2.2.1",
+  "author": "Systems <systems@homes.com>",
   "summary": "puppet module to manage ssh",
   "license": "MIT",
-  "source": "https://github.com/aptituz/puppet-openssh",
-  "project_page": "https://github.com/aptituz/puppet-openssh",
-  "issues_url": "https://github.com/aptituz/puppet-openssh/issues",
+  "source": "https://github.com/systemsathomesdotcom/puppet-openssh",
+  "project_page": "https://github.com/systemsathomesdotcom/puppet-openssh",
+  "issues_url": "https://github.com/systemsathomesdotcom/puppet-openssh/issues",
   "description": "This module allows managing ssh",
   "tags": ["ssh", "openssh", "hostkey", "ssh_keygen"],
   "operatingsystem_support": [
